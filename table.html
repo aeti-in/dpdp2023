@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Analysis Results</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <table class="table" id="analysisTable">
+            <thead>
+                <tr>
+                    <th>Consent</th> <!-- New column header moved to the first position -->
+                    <th>Purpose</th>
+                    <th>Collection Methods</th>
+                    <th>Lawful Basis</th>
+                    <th>Personal Data Types</th>
+                    <th>Third Parties</th>
+                    <th>Expiry</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Rows will be appended here dynamically -->
+            </tbody>
+        </table>
+        <footer>
+            <p>Contact Consent Manager: <a href="mailto:consentmanager@example.com">consentmanager@example.com</a></p>
+        </footer>
+    </div>
+
+    <script>
+        // Assuming the data is passed as a JSON object in a variable called 'data'
+        var data = {{ data|tojson|safe }};
+        
+        // Get the table body element
+        var tbody = document.getElementById('analysisTable').getElementsByTagName('tbody')[0];
+
+        // Iterate through the data and append rows
+        data.forEach(function(item) {
+            item.consentRequirements.forEach(function(consent) {
+                var row = tbody.insertRow();
+                var consentCell = row.insertCell(0); // New cell for consent checkbox
+                var checkbox = document.createElement('input'); // Create checkbox input element
+                checkbox.type = 'checkbox';
+                consentCell.appendChild(checkbox); // Append checkbox to the cell
+                row.insertCell(1).innerText = consent.purpose;
+                row.insertCell(2).innerText = consent.collectionMethods.join(', ');
+                row.insertCell(3).innerText = consent.lawfulBasis;
+                row.insertCell(4).innerText = consent.personalDataTypes.join(', ');
+                row.insertCell(5).innerText = consent.thirdParties.join(', ');
+                row.insertCell(6).innerText = consent.expiry;
+            });
+        });
+    </script>
+</body>
+</html>

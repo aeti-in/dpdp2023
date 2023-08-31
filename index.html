@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Analysis</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <form method="POST">
+            <div id="links">
+                <div class="form-group">
+                    <label for="link">Product Link:</label>
+                    <input type="text" class="form-control" name="link" required>
+                </div>
+            </div>
+            <button type="button" class="btn btn-secondary" onclick="addLink()">Add More Links</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+    <script>
+        function addLink() {
+            var div = document.createElement('div');
+            div.className = 'form-group';
+            div.innerHTML = '<label for="link">Product Link:</label><input type="text" class="form-control" name="link" required>';
+            document.getElementById('links').appendChild(div);
+        }
+    </script>
+</body>
+</html>
