@@ -1,0 +1,38 @@
+//from server to client
+{
+  "consentNotice": {
+    "noticeId": "notice_123456",
+    "title": "Your Privacy Matters",
+    "sections": [
+      {
+        "heading": "Data We Collect",
+        "content": "We collect your email address to send you our monthly newsletter."
+      },
+      {
+        "heading": "Why We Need It",
+        "content": "Your email address helps us keep you updated with our latest news and offers."
+      },
+      {
+        "heading": "How Long We Keep It",
+        "content": "We store your email address for one year or until you opt out."
+      },
+      {
+        "heading": "Who We Share It With",
+        "content": "We do not share your email address with any third parties."
+      }
+    ],
+    "actionItems": [
+      {
+        "actionId": "agree",
+        "label": "I Agree",
+        "type": "button"
+      },
+      {
+        "actionId": "disagree",
+        "label": "I Disagree",
+        "type": "button"
+      }
+    ],
+    "timestamp": "2023-09-04T12:34:56Z"
+  }
+}
